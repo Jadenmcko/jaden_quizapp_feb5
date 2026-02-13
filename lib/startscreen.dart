@@ -6,11 +6,11 @@ class Startscreen extends StatelessWidget{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(colors:[Color.fromARGB(255, 92, 205, 195), Color.fromARGB(255, 234, 34, 89)], 
-        begin: AlignmentGeometry.topLeft, 
-        end: Alignment.bottomRight,)
-      ),
+      // decoration: BoxDecoration(
+      //   gradient: LinearGradient(colors:[Color.fromARGB(255, 92, 205, 195), Color.fromARGB(255, 234, 34, 89)], 
+      //   begin: AlignmentGeometry.topLeft, 
+      //   end: Alignment.bottomRight,)
+      // ),
       child: Center(child: 
         Column(mainAxisSize: MainAxisSize.min, children: [
           Image.asset('assets/images/quiz-logo.png', width: 280, color: Color.fromARGB(255, 255, 255, 255),),

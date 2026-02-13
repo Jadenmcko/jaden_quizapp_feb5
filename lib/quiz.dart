@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:jaden_quizapp_feb5/questionScreen.dart';
 import 'package:jaden_quizapp_feb5/startscreen.dart';
@@ -22,6 +23,13 @@ class _QuizState extends State<Quiz>{
   @override
   Widget build(BuildContext context) {
     // TODO: implement
-    return activeScreen!;
+    return MaterialApp(home: Scaffold(body: Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(colors:[Color.fromARGB(255, 92, 205, 195), Color.fromARGB(255, 234, 34, 89)], 
+        begin: AlignmentGeometry.topLeft, 
+        end: Alignment.bottomRight,)
+      ),
+      child: activeScreen,
+      ),),);
   }
 }
