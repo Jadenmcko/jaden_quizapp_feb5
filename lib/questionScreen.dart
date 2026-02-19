@@ -14,13 +14,16 @@ class _questionScreenState extends State<questionScreen>{
     final currentQuestion = questions[0];
     return SizedBox(width: double.infinity, child: Column(mainAxisAlignment: MainAxisAlignment.center,
     children: [ Text(currentQuestion.question),
-    Column(children: [const Text('This is the question',
+    Column(children: [const Text('This is the question!',
     style: TextStyle(color: Colors.white, fontSize: 25),),
     const SizedBox(height: 30), 
-    Answersbutton(answerText: currentQuestion.answers[0], onTap: (){}),
-    Answersbutton(answerText: currentQuestion.answers[1], onTap: (){}),
-    Answersbutton(answerText: currentQuestion.answers[2], onTap: (){}),
-    Answersbutton(answerText: currentQuestion.answers[3], onTap: (){}),
+    // Answersbutton(answerText: currentQuestion.answers[0], onTap: (){}),
+    // Answersbutton(answerText: currentQuestion.answers[1], onTap: (){}),
+    // Answersbutton(answerText: currentQuestion.answers[2], onTap: (){}),
+    // Answersbutton(answerText: currentQuestion.answers[3], onTap: (){}),
+    ...currentQuestion.answers.map((item){
+      return Answersbutton(answerText: item, onTap: (){});
+    }),
     ],),],),
     );
   }
