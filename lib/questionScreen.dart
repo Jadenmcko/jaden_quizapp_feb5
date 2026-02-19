@@ -9,9 +9,16 @@ class questionScreen extends StatefulWidget{
   }
 }
 class _questionScreenState extends State<questionScreen>{
+    var currentQuestionIndex = 0;
+    void answerQuestion(){
+      setState(() {
+        // for if statement on the last question
+        currentQuestionIndex++;
+      });
+    }
   @override
   Widget build(BuildContext context){  // columns for the page
-    final currentQuestion = questions[0];
+    final currentQuestion = questions[currentQuestionIndex];
     return SizedBox(width: double.infinity, child: Container(
       margin: const EdgeInsets.all(25),
       child: Column(mainAxisAlignment: MainAxisAlignment.center,
@@ -27,8 +34,8 @@ class _questionScreenState extends State<questionScreen>{
       // Answersbutton(answerText: currentQuestion.answers[1], onTap: (){}),
       // Answersbutton(answerText: currentQuestion.answers[2], onTap: (){}),
       // Answersbutton(answerText: currentQuestion.answers[3], onTap: (){}),
-      ...currentQuestion.answers.map((item){
-        return Answersbutton(answerText: item, onTap: (){});
+      ...currentQuestion.getShuffledAnswers().map((item){
+        return Answersbutton(answerText: item, onTap: answerQuestion);
       }),
       ],),],),
     ),
