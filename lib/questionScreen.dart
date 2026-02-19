@@ -12,19 +12,26 @@ class _questionScreenState extends State<questionScreen>{
   @override
   Widget build(BuildContext context){  // columns for the page
     final currentQuestion = questions[0];
-    return SizedBox(width: double.infinity, child: Column(mainAxisAlignment: MainAxisAlignment.center,
-    children: [ Text(currentQuestion.question),
-    Column(children: [const Text('This is the question!',
-    style: TextStyle(color: Colors.white, fontSize: 25),),
-    const SizedBox(height: 30), 
-    // Answersbutton(answerText: currentQuestion.answers[0], onTap: (){}),
-    // Answersbutton(answerText: currentQuestion.answers[1], onTap: (){}),
-    // Answersbutton(answerText: currentQuestion.answers[2], onTap: (){}),
-    // Answersbutton(answerText: currentQuestion.answers[3], onTap: (){}),
-    ...currentQuestion.answers.map((item){
-      return Answersbutton(answerText: item, onTap: (){});
-    }),
-    ],),],),
+    return SizedBox(width: double.infinity, child: Container(
+      margin: const EdgeInsets.all(25),
+      child: Column(mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [Column(children: [
+        Text(currentQuestion.question,
+        style: const TextStyle(
+          color: Colors.white, 
+          fontSize: 25),
+          textAlign: TextAlign.center,),
+      const SizedBox(height: 30), 
+      // Answersbutton(answerText: currentQuestion.answers[0], onTap: (){}),
+      // Answersbutton(answerText: currentQuestion.answers[1], onTap: (){}),
+      // Answersbutton(answerText: currentQuestion.answers[2], onTap: (){}),
+      // Answersbutton(answerText: currentQuestion.answers[3], onTap: (){}),
+      ...currentQuestion.answers.map((item){
+        return Answersbutton(answerText: item, onTap: (){});
+      }),
+      ],),],),
+    ),
     );
   }
 }
