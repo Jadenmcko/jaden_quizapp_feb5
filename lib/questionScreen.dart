@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:jaden_quizapp_feb5/answersButton.dart';
 import 'package:jaden_quizapp_feb5/data/questions.dart';
 class questionScreen extends StatefulWidget{
-  const questionScreen({super.key});
+  const questionScreen({super.key, required this.onSelectedAnswer});
+  final void Function(String answer) onSelectedAnswer;
+
   State<questionScreen> createState(){
     return _questionScreenState();
   }
 }
 class _questionScreenState extends State<questionScreen>{
     var currentQuestionIndex = 0;
-    void answerQuestion(){
+    void answerQuestion(String selectedAnswer){
+      widget.onSelectedAnswer(selectedAnswer);
       setState(() {
         // for if statement on the last question
         currentQuestionIndex++;
@@ -25,7 +29,7 @@ class _questionScreenState extends State<questionScreen>{
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [Column(children: [
         Text(currentQuestion.question,
-        style: const TextStyle(
+        style: GoogleFonts.lato(
           color: Colors.white, 
           fontSize: 25),
           textAlign: TextAlign.center,),
@@ -35,7 +39,7 @@ class _questionScreenState extends State<questionScreen>{
       // Answersbutton(answerText: currentQuestion.answers[2], onTap: (){}),
       // Answersbutton(answerText: currentQuestion.answers[3], onTap: (){}),
       ...currentQuestion.getShuffledAnswers().map((item){
-        return Answersbutton(answerText: item, onTap: answerQuestion);
+        return Answersbutton(answerText: item, onTap: (){answerQuestion(item);});
       }),
       ],),],),
     ),
