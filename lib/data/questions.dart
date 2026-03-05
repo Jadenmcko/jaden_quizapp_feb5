@@ -10,4 +10,19 @@ const questions = [
   '8 times', 
   '5 times', 
   'They have the same amount of people']),
+  QuizQuestion("How many gigabits in unified memory is in a base model Macbook Pro?", 
+  ['10GB',
+  '8GB',
+  '16GB', // correct
+  '12GB']),
+  QuizQuestion("In Yorgos Lanthimos's movie, Bugonia (2025), what happens to Michelle Fuller?", 
+  ['She dies',
+  'She gets arrested',
+  'She gets abducted', // correct
+  "She gets fired from her job"]),
+  QuizQuestion("What is the capital city of Australia?", 
+  ['Canberra', // correct
+  'Sydney',
+  'Melbourne',
+  'Brisbane']),
 ];
