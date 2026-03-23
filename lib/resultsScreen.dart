@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:jaden_quizapp_feb5/data/questions.dart';
 import 'package:jaden_quizapp_feb5/questionsSummary.dart';
 class Resultsscreen extends StatelessWidget{
-const Resultsscreen({super.key, required this.chooseAnswers});
+const Resultsscreen({super.key, required this.chooseAnswers, required this.restartQuiz,});
 final List<String> chooseAnswers;
+final void Function() restartQuiz;
 List<Map<String, Object>> getSummaryData(){
   List<Map<String, Object>> summary = [];
   for(var i = 0; i < chooseAnswers.length; i++){
@@ -35,11 +36,11 @@ List<Map<String, Object>> getSummaryData(){
           children:  [
             Text('You answered $numTotalCorrect out of $numTotalQuestions questions correctly'),
             const SizedBox(height:30,),
-            Questionssummary(SummaryData: SummaryData)
+            Questionssummary(SummaryData: SummaryData),
             // const Text('List of Answers and Questions'),
             const SizedBox(height: 30,),
             TextButton(
-              onPressed: (){},
+              onPressed: restartQuiz,
               child: const Text('Restart Quiz'),
             )
           ],

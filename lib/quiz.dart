@@ -15,13 +15,19 @@ class _QuizState extends State<Quiz>{
   List<String> selectedAnswers = [];
   void chooseAnswer(String answer){
     selectedAnswers.add(answer);
-    if (selectedAnswers.length == questions.length);
+    if (selectedAnswers.length == questions.length){
+      setState(() {
+      // selectedAnswers = [];
+      activeScreen = Resultsscreen(chooseAnswers: selectedAnswers, restartQuiz: restartQuiz,);
+    });
+    }
+  }
+  void restartQuiz(){
     setState(() {
       selectedAnswers = [];
-      activeScreen = Resultsscreen(chooseAnswers: selectedAnswers,);
+      activeScreen = Startscreen(switchScreen);
     });
   }
-
   Widget? activeScreen;
   void switchScreen(){
     setState(() {
